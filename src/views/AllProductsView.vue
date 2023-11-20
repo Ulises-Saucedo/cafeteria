@@ -1,4 +1,5 @@
 <template>
+    <Navegation></Navegation>
     <section class="cards">
         <SingularCard
             v-for="(card, i) in cards" 
@@ -13,7 +14,8 @@
 </template>
 
 <script setup>
-    import SingularCard from './SingularCard.vue';
+    import SingularCard from '../components/SingularCard.vue';
+    import Navegation from '../components/Navegation.vue';
     import cardsUtilities from "../utilities/cards.js";
     const cards = cardsUtilities
 </script>
@@ -41,7 +43,7 @@
         .cards{
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
-            padding: 200px;
+            padding: 50px 200px;
         }
     }
 </style>

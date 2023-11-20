@@ -1,9 +1,8 @@
 <template>
-    <div class="card">
+    <div class="card" v-if="props.stock">
         <img :src="props.img" :alt="props.title">
         <span v-if="props.popular" class="popular">Popular</span>
         <p class="content__1"><span>{{ title }}</span><span class="price">${{ props.price }}</span></p>
-        <p v-if="!props.stock" class="sold">Sold out</p>
     </div>
 </template>
 

@@ -1,12 +1,11 @@
 <template>
   <img src="cafeteria.jpg" alt="Imagén de una cafetería">
   <div class="cards__container">
-    <CardsContainer></CardsContainer>
+    <router-view />
   </div>
 </template>
 
 <script setup>
-  import CardsContainer from './components/CardsContainer.vue';
 </script>
 
 <style scoped>
