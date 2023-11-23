@@ -1,5 +1,5 @@
 <template>
-    <div class="card" v-if="props.stock">
+    <div class="card" v-if="props.stock" :class="{'dark-mode': store.theme}">
         <img :src="props.img" :alt="props.title">
         <span v-if="props.popular" class="popular">Popular</span>
         <p class="content__1"><span>{{ title }}</span><span class="price">${{ props.price }}</span></p>
@@ -7,6 +7,8 @@
 </template>
 
 <script setup>
+    import { useTheme } from '../store/useTheme'
+    const store = useTheme()
     const props = defineProps({
         title: {
             String,
@@ -67,10 +69,16 @@
         padding: 5px;
         color: #1c1c1c;
     }
-    .sold{
-        width: 100%;
-        text-align: center;
-        background: #FD706B;
-        border-radius: 5px;
+    /* DARK MODE */
+    .dark-mode .popular{
+        background: #F5C768;
+        color: #1c1c1c;
+    }
+    .dark-mode .price{
+        background: #BEE3CB;
+        color: #1c1c1c;
+    }
+    .dark-mode .content__1{
+        color: #F9F2E8;
     }
 </style>

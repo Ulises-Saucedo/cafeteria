@@ -1,20 +1,23 @@
 <template>
-    <Navegation></Navegation>
-    <section class="cards">
-        <AvailableCard
-            v-for="(card, i) in cards" 
-            :key="i" 
-            :title="card.title" 
-            :popular="card.popular" 
-            :price="card.price" 
-            :stock="card.stock" 
-            :img="card.img">
-        </AvailableCard>
-    </section>
+    <NavegationLayout>
+        <template #content>
+            <section class="cards">
+                <AvailableCard
+                    v-for="(card, i) in cards" 
+                    :key="i" 
+                    :title="card.title" 
+                    :popular="card.popular" 
+                    :price="card.price" 
+                    :stock="card.stock" 
+                    :img="card.img">
+                </AvailableCard>
+            </section>
+        </template>
+    </NavegationLayout>
 </template>
 
 <script setup>
-    import Navegation from '../components/Navegation.vue';
+    import NavegationLayout from '../layouts/NavegationLayout.vue';
     import AvailableCard from '../components/AvailableCard.vue';
     import cardsUtilities from "../utilities/cards.js";
     const cards = cardsUtilities
