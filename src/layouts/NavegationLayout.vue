@@ -3,7 +3,9 @@
         <h1>Our Collection</h1>
         <p>Introducing our Coffee Collection, a selection of unique coffees from diferent roast types and origins, expertly roasted in small batches and shipped fresh weekly
         </p>
-        <button @click="store.toggleTheme()">Cambiar de tema</button>
+        <button @click="store.toggleTheme()">
+            <v-icon :name="store.theme === true ? 'md-lightmode-round' : 'md-darkmode-round'"></v-icon>
+        </button>
         <div>
             <router-link to="/" :class="{ 'active-link': isRouteActive('/') }" class="link">All products</router-link>
             <router-link to="/available" :class="{ 'active-link': isRouteActive('/available') }" class="link">Available now</router-link>
@@ -22,6 +24,10 @@
 </script>
 
 <style scoped>
+    button{
+        background: none;
+        border: none;
+    }
     .container{
         width: 100%;
         display: flex;
@@ -60,6 +66,9 @@
         font-size: 12px;
     }
     /* DARK MODE */
+    .dark-mode button{
+        color: #EFF0F2;
+    }
     .dark-mode h1{
         color: #EFF0F2;
     }

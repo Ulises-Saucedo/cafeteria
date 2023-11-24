@@ -2,7 +2,7 @@
     <div class="card" v-if="props.stock" :class="{'dark-mode': store.theme}">
         <img :src="props.img" :alt="props.title">
         <span v-if="props.popular" class="popular">Popular</span>
-        <p class="content__1"><span>{{ title }}</span><span class="price">${{ props.price }}</span></p>
+        <p class="content__1"><span class="title">{{ title }}</span><span class="price">${{ props.price }}</span></p>
     </div>
 </template>
 
@@ -31,6 +31,8 @@
             required: true
         }
     })
+
+
 </script>
 
 <style scoped>
@@ -40,7 +42,6 @@
         grid-template-rows: auto 35px 25px;
         position: relative;
         gap: 10px;
-        color: #F9F2E8;
     }
     img{
         width: 100%;
@@ -63,6 +64,9 @@
         width: 100%;
         justify-content: space-between;
     }
+    .title{
+        color: #484B6A;
+    }
     .price{
         background: #BEE3CB;
         border-radius: 5px;
@@ -78,7 +82,7 @@
         background: #BEE3CB;
         color: #1c1c1c;
     }
-    .dark-mode .content__1{
+    .dark-mode .title{
         color: #F9F2E8;
     }
 </style>

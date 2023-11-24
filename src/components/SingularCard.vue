@@ -1,13 +1,15 @@
 <template>
-    <div class="card">
+    <div class="card" :class="{'dark-mode': store.theme}">
         <img :src="props.img" :alt="props.title">
         <span v-if="props.popular" class="popular">Popular</span>
-        <p class="content__1"><span>{{ title }}</span><span class="price">${{ props.price }}</span></p>
+        <p class="content__1"><span class="title">{{ title }}</span><span class="price">${{ props.price }}</span></p>
         <p v-if="!props.stock" class="sold">Sold out</p>
     </div>
 </template>
 
 <script setup>
+    import { useTheme } from '../store/useTheme'
+    const store = useTheme()
     const props = defineProps({
         title: {
             String,
@@ -39,12 +41,14 @@
         grid-template-rows: auto 35px 25px;
         position: relative;
         gap: 10px;
-        color: #F9F2E8;
     }
     img{
         width: 100%;
         aspect-ratio: 16 / 9;
         border-radius: 10px;
+    }
+    .title{
+        color: #484B6A;
     }
     .popular{
         position: absolute;
@@ -71,7 +75,23 @@
     .sold{
         width: 100%;
         text-align: center;
-        background: #FD706B;
+        background: #FF474C;
+        color: #1c1c1c;
         border-radius: 5px;
+    }
+    .dark-mode .popular{
+        background: #F5C768;
+        color: #1c1c1c;
+    }
+    .dark-mode .sold{
+        background: #FD706B;
+        color: #F9F2E8;
+    }
+    .dark-mode .price{
+        background: #BEE3CB;
+        color: #1c1c1c;
+    }
+    .dark-mode .title{
+        color: #F9F2E8;
     }
 </style>

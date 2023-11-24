@@ -17,10 +17,19 @@
 </template>
 
 <script setup>
+    import { onMounted } from 'vue'
     import SingularCard from '../components/SingularCard.vue';
     import NavegationLayout from '../layouts/NavegationLayout.vue';
-    import cardsUtilities from "../utilities/cards.js";
-    const cards = cardsUtilities
+    import shopService from '../services/shopService';
+    
+    const shop = new shopService()
+    const cards = shop.getCards()
+
+    onMounted(async() =>{
+        await shop.fetchAll()
+    })
+
+    console.log(cards)
 </script>
 
 <style scoped>
