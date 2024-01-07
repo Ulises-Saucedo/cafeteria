@@ -27,6 +27,7 @@
     button{
         background: none;
         border: none;
+        cursor: pointer;
     }
     .container{
         width: 100%;
